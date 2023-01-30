@@ -13,14 +13,14 @@ namespace XComSpike
 
             var apiInstance = new MailApi("https://xcom.d.vu.local/v2");
             var application = ApplicationType.Vuhl;
-            var templateName = "IntitleFundingAuthorized";
+            var templateId = "d-06ab519b7f6c472ebfbee9463d048e68";
             DynamicTemplateData templateData = new DynamicTemplateData {{ "firstName", "Mike" }};
             var toEmail = "mike.hall@veteransunited.com";
 
 
             var mailRequest = new MailRequest(
                 application: application,
-                templateName: templateName,
+                templateId: templateId,
                 recipients: new Recipients(to: new List<string> { toEmail }),
                 dynamicTemplateData: templateData,
                 sendTestEmail: 1);
