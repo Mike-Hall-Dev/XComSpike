@@ -11,4 +11,10 @@
     <PackageReference Include="XCom.ApiClient" Version="2.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TextFile1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

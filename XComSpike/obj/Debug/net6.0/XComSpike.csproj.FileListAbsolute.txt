@@ -18,3 +18,4 @@ C:\Users\mike.hall\PDT\XComSpike\XComSpike\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\mike.hall\PDT\XComSpike\XComSpike\bin\Debug\net6.0\RestSharp.dll
 C:\Users\mike.hall\PDT\XComSpike\XComSpike\bin\Debug\net6.0\XCom.ApiClient.dll
 C:\Users\mike.hall\PDT\XComSpike\XComSpike\obj\Debug\net6.0\XComSpike.csproj.CopyComplete
+C:\Users\mike.hall\PDT\XComSpike\XComSpike\bin\Debug\net6.0\TextFile1.txt
