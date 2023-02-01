@@ -12,17 +12,26 @@ namespace XComSpike
         {
 
             var apiInstance = new MailApi("https://xcom.d.vu.local/v2");
-            var application = ApplicationType.Vuhl;
-            var templateId = "d-06ab519b7f6c472ebfbee9463d048e68";
-            DynamicTemplateData templateData = new DynamicTemplateData {{ "firstName", "Mike" }};
+            var application = ApplicationType.SsOps;
+            var templateId = "d-72603a604ca64fcb8387d260e53eeca0";
+            DynamicTemplateData templateData = new DynamicTemplateData {{ "4002", "Mike" }};
             var toEmail = "mike.hall@veteransunited.com";
+            var fromEmail = "no_reply@vu.com";
 
+            //Attempting to attach a text file to email
+            var fileName = "TextFile1.txt";
+            var path = $@"..\..\..\{fileName}";
+            var fileContents = File.ReadAllText(path);
+            var fileToAttach = new XCom.ApiClient.Model.Attachment(fileContents, "txt", fileName);
+            var attachments = new List<XCom.ApiClient.Model.Attachment> { fileToAttach };
 
             var mailRequest = new MailRequest(
                 application: application,
                 templateId: templateId,
+                fromEmail: fromEmail,
                 recipients: new Recipients(to: new List<string> { toEmail }),
                 dynamicTemplateData: templateData,
+                attachments: attachments,
                 sendTestEmail: 1);
 
             try
