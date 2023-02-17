@@ -1,0 +1,2143 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XCom.Api</name>
+    </assembly>
+    <members>
+        <member name="T:XCom.Api.Attributes.ValidateModelStateAttribute">
+            <summary>
+            Model state validation attribute.
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Attributes.ValidateModelStateAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Called before the action method is invoked.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:XCom.Api.Controllers.ConnectApiController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Controllers.ConnectApiController.Connect(System.Collections.Generic.List{XCom.Api.Models.SendgridWebhook})">
+            <summary>
+            Webhook for SendGrid Events
+            </summary>
+            <remarks>Webhook to Receive SendGrid Events</remarks>
+            <param name="sendGridWebHook"></param>
+            <response code="200">Webhook Event Recevied Succesfully</response>
+            <response code="400">Webhook Event Recevied un-succesfully</response>
+        </member>
+        <member name="T:XCom.Api.Controllers.EventsApiController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Controllers.EventsApiController.CreateCallbackFailure(System.Nullable{System.Int32},XCom.Api.Models.CallbackFailure)">
+            <summary>
+            creates a callback failure for a given xCom callback event
+            </summary>
+            <param name="xComId"></param>
+            <param name="callbackFailure"></param>
+            <response code="200">list of callback failures for specified identifier</response>
+            <response code="404">no callback failures found for specified identifier</response>
+        </member>
+        <member name="M:XCom.Api.Controllers.EventsApiController.GetCallbackFailuresById(System.Nullable{System.Int32})">
+            <summary>
+            gets a list of the callback failures for a given xCom callback event
+            </summary>
+            <param name="xComId"></param>
+            <response code="200">list of callback failures for specified identifier</response>
+            <response code="404">no callback failures found for specified identifier</response>
+        </member>
+        <member name="M:XCom.Api.Controllers.EventsApiController.GetEventsById(System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            gets a list of the email events captured for a specific xComRequest
+            </summary>
+            <remarks>gets a list of the email events captured for a specific xComRequest. At least one of the parameters must be provided.</remarks>
+            <param name="xComId"></param>
+            <param name="sgMessageId"></param>
+            <param name="sgEventId"></param>
+            <response code="200">list of events for specified identifier</response>
+            <response code="404">no events found for specified identifier</response>
+        </member>
+        <member name="M:XCom.Api.Controllers.EventsApiController.ReplaysEventsForAGivenIdentifier(System.Nullable{System.Int32},XCom.Api.Models.EventRetry)">
+            <summary>
+            replays events for a given identifier
+            </summary>
+            <param name="xComId"></param>
+            <param name="retryRequest"></param>
+            <response code="202">succesfully replayed events for given identifier</response>
+            <response code="404">no callback failures found for specified identifier</response>
+        </member>
+        <member name="T:XCom.Api.Controllers.MailApiController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Controllers.MailApiController.SendMail(XCom.Api.Models.MailRequest)">
+            <summary>
+            Send Email
+            </summary>
+            <remarks>Send Email</remarks>
+            <param name="mailRequest">Object to Send an Email</param>
+            <response code="200">Mail Successfully Sent</response>
+            <response code="400">invalid input, object invalid, required field(s) missing</response>
+        </member>
+        <member name="T:XCom.Api.Controllers.TemplatesApiController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:XCom.Api.Filters.BasePathFilter">
+            <summary>
+            BasePath Document Filter sets BasePath property of Swagger and removes it from the individual URL paths
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Filters.BasePathFilter.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="basePath">BasePath to remove from Operations</param>
+        </member>
+        <member name="P:XCom.Api.Filters.BasePathFilter.BasePath">
+            <summary>
+            Gets the BasePath of the Swagger Doc
+            </summary>
+            <returns>The BasePath of the Swagger Doc</returns>
+        </member>
+        <member name="M:XCom.Api.Filters.BasePathFilter.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            Apply the filter
+            </summary>
+            <param name="swaggerDoc">OpenApiDocument</param>
+            <param name="context">FilterContext</param>
+        </member>
+        <member name="T:XCom.Api.Filters.GeneratePathParamsValidationFilter">
+            <summary>
+            Path Parameter Validation Rules Filter
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Filters.GeneratePathParamsValidationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="operation">Operation</param>
+            <param name="context">OperationFilterContext</param>
+        </member>
+        <member name="T:XCom.Api.Models.ApplicationType">
+            <summary>
+            Gets or Sets ApplicationType
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.ApplicationType.NotSet">
+            <summary>
+            Enum NotSetEnum for NotSet
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.ApplicationType.Vuhl">
+            <summary>
+            Enum VuhlEnum for Vuhl
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.ApplicationType.Bank">
+            <summary>
+            Enum BankEnum for Bank
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.ApplicationType.Paddio">
+            <summary>
+            Enum PaddioEnum for Paddio
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.ApplicationType.SsOps">
+            <summary>
+            Enum SsOpsEnum for SsOps
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.ApplicationType.MRC">
+            <summary>
+            Enum MRCEnum for MRC
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.ApplicationType.SelectStar">
+            <summary>
+            Enum SelectStarEnum for SelectStar
+            </summary>
+        </member>
+        <member name="T:XCom.Api.Models.Attachment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.Attachment.Content">
+            <summary>
+            Gets or Sets Content
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.Attachment.Type">
+            <summary>
+            Gets or Sets Type
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.Attachment.Filename">
+            <summary>
+            Gets or Sets Filename
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.Attachment.Dispostion">
+            <summary>
+            Gets or Sets Dispostion
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.Attachment.ContentId">
+            <summary>
+            Gets or Sets ContentId
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.Attachment.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Attachment.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Attachment.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Attachment.Equals(XCom.Api.Models.Attachment)">
+            <summary>
+            Returns true if Attachment instances are equal
+            </summary>
+            <param name="other">Instance of Attachment to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Attachment.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.CallbackFailure">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.CallbackFailure.CallbackUri">
+            <summary>
+            Gets or Sets CallbackUri
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.CallbackFailure.CallbackResponseStatus">
+            <summary>
+            Gets or Sets CallbackResponseStatus
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.CallbackFailure.RetryCount">
+            <summary>
+            Gets or Sets RetryCount
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.CallbackFailure.XComId">
+            <summary>
+            Gets or Sets XComId
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.CallbackFailure.SgEventId">
+            <summary>
+            Gets or Sets SgEventId
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.CallbackFailure.SgMessageId">
+            <summary>
+            Gets or Sets SgMessageId
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailure.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailure.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailure.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailure.Equals(XCom.Api.Models.CallbackFailure)">
+            <summary>
+            Returns true if CallbackFailure instances are equal
+            </summary>
+            <param name="other">Instance of CallbackFailure to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailure.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.CallbackFailureResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.CallbackFailureResponse.Data">
+            <summary>
+            Gets or Sets Data
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponse.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponse.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponse.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponse.Equals(XCom.Api.Models.CallbackFailureResponse)">
+            <summary>
+            Returns true if CallbackFailureResponse instances are equal
+            </summary>
+            <param name="other">Instance of CallbackFailureResponse to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponse.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.CallbackFailureResponseData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.CallbackFailureResponseData.Items">
+            <summary>
+            Gets or Sets Items
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponseData.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponseData.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponseData.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponseData.Equals(XCom.Api.Models.CallbackFailureResponseData)">
+            <summary>
+            Returns true if CallbackFailureResponseData instances are equal
+            </summary>
+            <param name="other">Instance of CallbackFailureResponseData to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponseData.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.CallbackFailureResponseDataItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponseDataItems.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponseDataItems.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponseDataItems.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponseDataItems.Equals(XCom.Api.Models.CallbackFailureResponseDataItems)">
+            <summary>
+            Returns true if CallbackFailureResponseDataItems instances are equal
+            </summary>
+            <param name="other">Instance of CallbackFailureResponseDataItems to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.CallbackFailureResponseDataItems.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.DeleteTemplateRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.DeleteTemplateRequest.TemplateId">
+            <summary>
+            Gets or Sets TemplateId
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.DeleteTemplateRequest.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.DeleteTemplateRequest.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.DeleteTemplateRequest.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.DeleteTemplateRequest.Equals(XCom.Api.Models.DeleteTemplateRequest)">
+            <summary>
+            Returns true if DeleteTemplateRequest instances are equal
+            </summary>
+            <param name="other">Instance of DeleteTemplateRequest to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.DeleteTemplateRequest.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.DynamicTemplateData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.DynamicTemplateData.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.DynamicTemplateData.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.DynamicTemplateData.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.DynamicTemplateData.Equals(XCom.Api.Models.DynamicTemplateData)">
+            <summary>
+            Returns true if DynamicTemplateData instances are equal
+            </summary>
+            <param name="other">Instance of DynamicTemplateData to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.DynamicTemplateData.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.ErrorResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.ErrorResponse.Error">
+            <summary>
+            Gets or Sets Error
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.ErrorResponse.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ErrorResponse.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ErrorResponse.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ErrorResponse.Equals(XCom.Api.Models.ErrorResponse)">
+            <summary>
+            Returns true if ErrorResponse instances are equal
+            </summary>
+            <param name="other">Instance of ErrorResponse to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ErrorResponse.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.EventResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.EventResponse.Data">
+            <summary>
+            Gets or Sets Data
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponse.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponse.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponse.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponse.Equals(XCom.Api.Models.EventResponse)">
+            <summary>
+            Returns true if EventResponse instances are equal
+            </summary>
+            <param name="other">Instance of EventResponse to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponse.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.EventResponseData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.EventResponseData.Items">
+            <summary>
+            Gets or Sets Items
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponseData.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponseData.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponseData.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponseData.Equals(XCom.Api.Models.EventResponseData)">
+            <summary>
+            Returns true if EventResponseData instances are equal
+            </summary>
+            <param name="other">Instance of EventResponseData to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponseData.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.EventResponseDataItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponseDataItems.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponseDataItems.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponseDataItems.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponseDataItems.Equals(XCom.Api.Models.EventResponseDataItems)">
+            <summary>
+            Returns true if EventResponseDataItems instances are equal
+            </summary>
+            <param name="other">Instance of EventResponseDataItems to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventResponseDataItems.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.EventRetry">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.EventRetry.StartTime">
+            <summary>
+            Gets or Sets StartTime
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.EventRetry.EndTime">
+            <summary>
+            Gets or Sets EndTime
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.EventRetry.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventRetry.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventRetry.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventRetry.Equals(XCom.Api.Models.EventRetry)">
+            <summary>
+            Returns true if EventRetry instances are equal
+            </summary>
+            <param name="other">Instance of EventRetry to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.EventRetry.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.JsonResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponse.ApiVersion">
+            <summary>
+            Gets or Sets ApiVersion
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponse.Context">
+            <summary>
+            Gets or Sets Context
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponse.Id">
+            <summary>
+            Gets or Sets Id
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponse.Method">
+            <summary>
+            Gets or Sets Method
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponse.Params">
+            <summary>
+            Gets or Sets Params
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponse.Data">
+            <summary>
+            Gets or Sets Data
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponse.Error">
+            <summary>
+            Gets or Sets Error
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponse.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponse.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponse.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponse.Equals(XCom.Api.Models.JsonResponse)">
+            <summary>
+            Returns true if JsonResponse instances are equal
+            </summary>
+            <param name="other">Instance of JsonResponse to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponse.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.JsonResponseData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Kind">
+            <summary>
+            Gets or Sets Kind
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Fields">
+            <summary>
+            Gets or Sets Fields
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Etag">
+            <summary>
+            Gets or Sets Etag
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Id">
+            <summary>
+            Gets or Sets Id
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Lang">
+            <summary>
+            Gets or Sets Lang
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Updated">
+            <summary>
+            Gets or Sets Updated
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Deleted">
+            <summary>
+            Gets or Sets Deleted
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.CurrentItemCount">
+            <summary>
+            Gets or Sets CurrentItemCount
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.ItemsPerPage">
+            <summary>
+            Gets or Sets ItemsPerPage
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.StartIndex">
+            <summary>
+            Gets or Sets StartIndex
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.TotalItems">
+            <summary>
+            Gets or Sets TotalItems
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.PageIndex">
+            <summary>
+            Gets or Sets PageIndex
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.TotalPages">
+            <summary>
+            Gets or Sets TotalPages
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.PageLinkTemplate">
+            <summary>
+            Gets or Sets PageLinkTemplate
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Next">
+            <summary>
+            Gets or Sets Next
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.NextLink">
+            <summary>
+            Gets or Sets NextLink
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Previous">
+            <summary>
+            Gets or Sets Previous
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.PreviousLink">
+            <summary>
+            Gets or Sets PreviousLink
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Self">
+            <summary>
+            Gets or Sets Self
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.SelfLink">
+            <summary>
+            Gets or Sets SelfLink
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Edit">
+            <summary>
+            Gets or Sets Edit
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.EditLink">
+            <summary>
+            Gets or Sets EditLink
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseData.Items">
+            <summary>
+            Gets or Sets Items
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseData.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseData.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseData.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseData.Equals(XCom.Api.Models.JsonResponseData)">
+            <summary>
+            Returns true if JsonResponseData instances are equal
+            </summary>
+            <param name="other">Instance of JsonResponseData to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseData.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.JsonResponseError">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseError.Code">
+            <summary>
+            Gets or Sets Code
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseError.Message">
+            <summary>
+            Gets or Sets Message
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseError.Errors">
+            <summary>
+            Gets or Sets Errors
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseError.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseError.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseError.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseError.Equals(XCom.Api.Models.JsonResponseError)">
+            <summary>
+            Returns true if JsonResponseError instances are equal
+            </summary>
+            <param name="other">Instance of JsonResponseError to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseError.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.JsonResponseErrorModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseErrorModel.Domain">
+            <summary>
+            Gets or Sets Domain
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseErrorModel.Reason">
+            <summary>
+            Gets or Sets Reason
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseErrorModel.Message">
+            <summary>
+            Gets or Sets Message
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseErrorModel.Location">
+            <summary>
+            Gets or Sets Location
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseErrorModel.LocationType">
+            <summary>
+            Gets or Sets LocationType
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseErrorModel.ExtendedHelp">
+            <summary>
+            Gets or Sets ExtendedHelp
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseErrorModel.SendReport">
+            <summary>
+            Gets or Sets SendReport
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseErrorModel.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseErrorModel.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseErrorModel.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseErrorModel.Equals(XCom.Api.Models.JsonResponseErrorModel)">
+            <summary>
+            Returns true if JsonResponseErrorModel instances are equal
+            </summary>
+            <param name="other">Instance of JsonResponseErrorModel to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseErrorModel.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.JsonResponseParams">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.JsonResponseParams.Id">
+            <summary>
+            Gets or Sets Id
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseParams.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseParams.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseParams.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseParams.Equals(XCom.Api.Models.JsonResponseParams)">
+            <summary>
+            Returns true if JsonResponseParams instances are equal
+            </summary>
+            <param name="other">Instance of JsonResponseParams to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.JsonResponseParams.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.MailRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.MailRequest.Application">
+            <summary>
+            Gets or Sets Application
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.MailRequest.TemplateId">
+            <summary>
+            This is the unique identifier within Send Grid responsible for identifying the template.
+            </summary>
+            <value>This is the unique identifier within Send Grid responsible for identifying the template.</value>
+        </member>
+        <member name="P:XCom.Api.Models.MailRequest.TemplateName">
+            <summary>
+            This is a friendly name to identify the Send Grid template for our organization.
+            </summary>
+            <value>This is a friendly name to identify the Send Grid template for our organization.</value>
+        </member>
+        <member name="P:XCom.Api.Models.MailRequest.Recipients">
+            <summary>
+            Gets or Sets Recipients
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.MailRequest.FromEmail">
+            <summary>
+            Gets or Sets FromEmail
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.MailRequest.FromName">
+            <summary>
+            Gets or Sets FromName
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.MailRequest.DynamicTemplateData">
+            <summary>
+            Gets or Sets DynamicTemplateData
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.MailRequest.CallbackUrl">
+            <summary>
+            This url will be called for each email event. This includes:   - processed  - dropped  - delivered  - deferred  - bounce   - open  - click  - spam report  - unsubscribe  - group unsubscribe  - group resubscribe 
+            </summary>
+            <value>This url will be called for each email event. This includes:   - processed  - dropped  - delivered  - deferred  - bounce   - open  - click  - spam report  - unsubscribe  - group unsubscribe  - group resubscribe </value>
+        </member>
+        <member name="P:XCom.Api.Models.MailRequest.Attachments">
+            <summary>
+            Gets or Sets Attachments
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.MailRequest.SendTestEmail">
+            <summary>
+            Gets or Sets SendTestEmail
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.MailRequest.XComRequestId">
+            <summary>
+            Gets or Sets XComRequestId
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.MailRequest.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.MailRequest.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.MailRequest.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.MailRequest.Equals(XCom.Api.Models.MailRequest)">
+            <summary>
+            Returns true if MailRequest instances are equal
+            </summary>
+            <param name="other">Instance of MailRequest to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.MailRequest.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.MailResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.MailResponse.Message">
+            <summary>
+            Gets or Sets Message
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.MailResponse.XcomRequestId">
+            <summary>
+            Gets or Sets XcomRequestId
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.MailResponse.Successful">
+            <summary>
+            Gets or Sets Successful
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.MailResponse.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.MailResponse.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.MailResponse.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.MailResponse.Equals(XCom.Api.Models.MailResponse)">
+            <summary>
+            Returns true if MailResponse instances are equal
+            </summary>
+            <param name="other">Instance of MailResponse to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.MailResponse.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.NewTemplateRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.NewTemplateRequest.TemplateName">
+            <summary>
+            Gets or Sets TemplateName
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.NewTemplateRequest.Application">
+            <summary>
+            Gets or Sets Application
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.NewTemplateRequest.SendGridTemplateId">
+            <summary>
+            Gets or Sets SendGridTemplateId
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.NewTemplateRequest.Description">
+            <summary>
+            Gets or Sets Description
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.NewTemplateRequest.Permissions">
+            <summary>
+            Gets or Sets Permissions
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.NewTemplateRequest.RateLimit">
+            <summary>
+            Gets or Sets RateLimit
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.NewTemplateRequest.BccAddresses">
+            <summary>
+            Gets or Sets BccAddresses
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.NewTemplateRequest.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.NewTemplateRequest.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.NewTemplateRequest.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.NewTemplateRequest.Equals(XCom.Api.Models.NewTemplateRequest)">
+            <summary>
+            Returns true if NewTemplateRequest instances are equal
+            </summary>
+            <param name="other">Instance of NewTemplateRequest to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.NewTemplateRequest.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.RateLimit">
+            <summary>
+            this rate limit is used to limit the number of times a message is delivered per recipient for a given template within a given window.
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.RateLimit.Period">
+            <summary>
+            period in minutes
+            </summary>
+            <value>period in minutes</value>
+        </member>
+        <member name="P:XCom.Api.Models.RateLimit.Limit">
+            <summary>
+            number of times to allow delivery per period
+            </summary>
+            <value>number of times to allow delivery per period</value>
+        </member>
+        <member name="M:XCom.Api.Models.RateLimit.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.RateLimit.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.RateLimit.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.RateLimit.Equals(XCom.Api.Models.RateLimit)">
+            <summary>
+            Returns true if RateLimit instances are equal
+            </summary>
+            <param name="other">Instance of RateLimit to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.RateLimit.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.Recipients">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.Recipients.To">
+            <summary>
+            Gets or Sets To
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.Recipients.Cc">
+            <summary>
+            Gets or Sets Cc
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.Recipients.Bcc">
+            <summary>
+            Gets or Sets Bcc
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.Recipients.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Recipients.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Recipients.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Recipients.Equals(XCom.Api.Models.Recipients)">
+            <summary>
+            Returns true if Recipients instances are equal
+            </summary>
+            <param name="other">Instance of Recipients to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Recipients.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.Response.ApiVersion">
+            <summary>
+            Gets or Sets ApiVersion
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.Response.Id">
+            <summary>
+            Gets or Sets Id
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.Response.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Response.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Response.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Response.Equals(XCom.Api.Models.Response)">
+            <summary>
+            Returns true if Response instances are equal
+            </summary>
+            <param name="other">Instance of Response to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.Response.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.ResponseError">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.ResponseError.Code">
+            <summary>
+            Gets or Sets Code
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.ResponseError.Message">
+            <summary>
+            Gets or Sets Message
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.ResponseError.Errors">
+            <summary>
+            Gets or Sets Errors
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.ResponseError.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ResponseError.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ResponseError.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ResponseError.Equals(XCom.Api.Models.ResponseError)">
+            <summary>
+            Returns true if ResponseError instances are equal
+            </summary>
+            <param name="other">Instance of ResponseError to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ResponseError.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.ResponseErrorModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.ResponseErrorModel.Domain">
+            <summary>
+            Gets or Sets Domain
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.ResponseErrorModel.Reason">
+            <summary>
+            Gets or Sets Reason
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.ResponseErrorModel.Message">
+            <summary>
+            Gets or Sets Message
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.ResponseErrorModel.Location">
+            <summary>
+            Gets or Sets Location
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.ResponseErrorModel.LocationType">
+            <summary>
+            Gets or Sets LocationType
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.ResponseErrorModel.ExtendedHelp">
+            <summary>
+            Gets or Sets ExtendedHelp
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.ResponseErrorModel.SendReport">
+            <summary>
+            Gets or Sets SendReport
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.ResponseErrorModel.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ResponseErrorModel.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ResponseErrorModel.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ResponseErrorModel.Equals(XCom.Api.Models.ResponseErrorModel)">
+            <summary>
+            Returns true if ResponseErrorModel instances are equal
+            </summary>
+            <param name="other">Instance of ResponseErrorModel to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.ResponseErrorModel.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.SendgridWebhook">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:XCom.Api.Models.SendgridWebhook.WebhookType">
+            <summary>
+            Gets or Sets Type
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookType.BlockedEnum">
+            <summary>
+            Enum BlockedEnum for blocked
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookType.BounceEnum">
+            <summary>
+            Enum BounceEnum for bounce
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.Type">
+            <summary>
+            Gets or Sets Type
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.SgMessageId">
+            <summary>
+            Gets or Sets SgMessageId
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.Ip">
+            <summary>
+            Gets or Sets Ip
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.SgEventId">
+            <summary>
+            Gets or Sets SgEventId
+            </summary>
+        </member>
+        <member name="T:XCom.Api.Models.SendgridWebhook.WebhookEvent">
+            <summary>
+            Gets or Sets Event
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookEvent.Processed">
+            <summary>
+            Enum ProcessedEnum for Processed
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookEvent.Dropped">
+            <summary>
+            Enum DroppedEnum for Dropped
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookEvent.Delivered">
+            <summary>
+            Enum DeliveredEnum for Delivered
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookEvent.Deferred">
+            <summary>
+            Enum DeferredEnum for Deferred
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookEvent.Bounce">
+            <summary>
+            Enum BounceEnum for Bounce
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookEvent.Open">
+            <summary>
+            Enum OpenEnum for Open
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookEvent.Click">
+            <summary>
+            Enum ClickEnum for Click
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookEvent.SpamReport">
+            <summary>
+            Enum SpamReportEnum for SpamReport
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookEvent.Unsubscribe">
+            <summary>
+            Enum UnsubscribeEnum for Unsubscribe
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookEvent.GroupUnsubscribe">
+            <summary>
+            Enum GroupUnsubscribeEnum for Group_Unsubscribe
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.SendgridWebhook.WebhookEvent.GroupResubscribe">
+            <summary>
+            Enum GroupResubscribeEnum for Group_Resubscribe
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.Event">
+            <summary>
+            Gets or Sets Event
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.Response">
+            <summary>
+            Gets or Sets Response
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.Email">
+            <summary>
+            Gets or Sets Email
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.Timestamp">
+            <summary>
+            Gets or Sets Timestamp
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.SmtpId">
+            <summary>
+            Gets or Sets SmtpId
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.Status">
+            <summary>
+            Gets or Sets Status
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.Xcomid">
+            <summary>
+            Gets or Sets Xcomid
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.Sendrequestguid">
+            <summary>
+            Gets or Sets Sendrequestguid
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.Environment">
+            <summary>
+            Gets or Sets Environment
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SendgridWebhook.CallbackUrl">
+            <summary>
+            Gets or Sets CallbackUrl
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.SendgridWebhook.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SendgridWebhook.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SendgridWebhook.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SendgridWebhook.Equals(XCom.Api.Models.SendgridWebhook)">
+            <summary>
+            Returns true if SendgridWebhook instances are equal
+            </summary>
+            <param name="other">Instance of SendgridWebhook to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SendgridWebhook.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.SuccessResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.SuccessResponse.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SuccessResponse.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SuccessResponse.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SuccessResponse.Equals(XCom.Api.Models.SuccessResponse)">
+            <summary>
+            Returns true if SuccessResponse instances are equal
+            </summary>
+            <param name="other">Instance of SuccessResponse to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SuccessResponse.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.SuccessResponseData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SuccessResponseData.Id">
+            <summary>
+            Gets or Sets Id
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SuccessResponseData.Updated">
+            <summary>
+            Gets or Sets Updated
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.SuccessResponseData.Deleted">
+            <summary>
+            Gets or Sets Deleted
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.SuccessResponseData.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SuccessResponseData.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SuccessResponseData.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SuccessResponseData.Equals(XCom.Api.Models.SuccessResponseData)">
+            <summary>
+            Returns true if SuccessResponseData instances are equal
+            </summary>
+            <param name="other">Instance of SuccessResponseData to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.SuccessResponseData.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.UpdateTemplateRequest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.UpdateTemplateRequest.Id">
+            <summary>
+            Gets or Sets Id
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.UpdateTemplateRequest.TemplateName">
+            <summary>
+            Gets or Sets TemplateName
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.UpdateTemplateRequest.Application">
+            <summary>
+            Gets or Sets Application
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.UpdateTemplateRequest.SendGridTemplateId">
+            <summary>
+            Gets or Sets SendGridTemplateId
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.UpdateTemplateRequest.Description">
+            <summary>
+            Gets or Sets Description
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.UpdateTemplateRequest.Permissions">
+            <summary>
+            Gets or Sets Permissions
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.UpdateTemplateRequest.RateLimit">
+            <summary>
+            Gets or Sets RateLimit
+            </summary>
+        </member>
+        <member name="P:XCom.Api.Models.UpdateTemplateRequest.BccAddresses">
+            <summary>
+            Gets or Sets RateLimit
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Models.UpdateTemplateRequest.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.UpdateTemplateRequest.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:XCom.Api.Models.UpdateTemplateRequest.Equals(System.Object)">
+            <summary>
+            Returns true if objects are equal
+            </summary>
+            <param name="obj">Object to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.UpdateTemplateRequest.Equals(XCom.Api.Models.UpdateTemplateRequest)">
+            <summary>
+            Returns true if UpdateTemplateRequest instances are equal
+            </summary>
+            <param name="other">Instance of UpdateTemplateRequest to be compared</param>
+            <returns>Boolean</returns>
+        </member>
+        <member name="M:XCom.Api.Models.UpdateTemplateRequest.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>Hash code</returns>
+        </member>
+        <member name="T:XCom.Api.Models.WebhookEvent">
+            <summary>
+            Gets or Sets WebhookEvent
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEvent.ProcessedEnum">
+            <summary>
+            Enum ProcessedEnum for Processed
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEvent.DroppedEnum">
+            <summary>
+            Enum DroppedEnum for Dropped
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEvent.DeliveredEnum">
+            <summary>
+            Enum DeliveredEnum for Delivered
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEvent.DeferredEnum">
+            <summary>
+            Enum DeferredEnum for Deferred
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEvent.BounceEnum">
+            <summary>
+            Enum BounceEnum for Bounce
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEvent.OpenEnum">
+            <summary>
+            Enum OpenEnum for Open
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEvent.ClickEnum">
+            <summary>
+            Enum ClickEnum for Click
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEvent.SpamReportEnum">
+            <summary>
+            Enum SpamReportEnum for SpamReport
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEvent.UnsubscribeEnum">
+            <summary>
+            Enum UnsubscribeEnum for Unsubscribe
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEvent.GroupUnsubscribeEnum">
+            <summary>
+            Enum GroupUnsubscribeEnum for Group_Unsubscribe
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEvent.GroupResubscribeEnum">
+            <summary>
+            Enum GroupResubscribeEnum for Group_Resubscribe
+            </summary>
+        </member>
+        <member name="T:XCom.Api.Models.WebhookEventType">
+            <summary>
+            Gets or Sets WebhookEventType
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEventType.ProcessedEnum">
+            <summary>
+            Enum ProcessedEnum for Processed
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEventType.DroppedEnum">
+            <summary>
+            Enum DroppedEnum for Dropped
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEventType.DeliveredEnum">
+            <summary>
+            Enum DeliveredEnum for Delivered
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEventType.DeferredEnum">
+            <summary>
+            Enum DeferredEnum for Deferred
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEventType.BounceEnum">
+            <summary>
+            Enum BounceEnum for Bounce
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEventType.OpenEnum">
+            <summary>
+            Enum OpenEnum for Open
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEventType.ClickEnum">
+            <summary>
+            Enum ClickEnum for Click
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEventType.SpamReportEnum">
+            <summary>
+            Enum SpamReportEnum for SpamReport
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEventType.UnsubscribeEnum">
+            <summary>
+            Enum UnsubscribeEnum for Unsubscribe
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEventType.GroupUnsubscribeEnum">
+            <summary>
+            Enum GroupUnsubscribeEnum for Group_Unsubscribe
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookEventType.GroupResubscribeEnum">
+            <summary>
+            Enum GroupResubscribeEnum for Group_Resubscribe
+            </summary>
+        </member>
+        <member name="T:XCom.Api.Models.WebhookType">
+            <summary>
+            Gets or Sets WebhookType
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookType.BlockedEnum">
+            <summary>
+            Enum BlockedEnum for blocked
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Models.WebhookType.BounceEnum">
+            <summary>
+            Enum BounceEnum for bounce
+            </summary>
+        </member>
+        <member name="T:XCom.Api.Program">
+            <summary>
+            Program.
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Program.Main(System.String[])">
+            <summary>
+            Main.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:XCom.Api.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Create the web host builder.
+            </summary>
+            <param name="args"></param>
+            <returns>IWebHostBuilder.</returns>
+        </member>
+        <member name="T:XCom.Api.Security.ApiKeyAuthenticationHandler">
+            <summary>
+            class to handle api_key security.
+            </summary>
+        </member>
+        <member name="F:XCom.Api.Security.ApiKeyAuthenticationHandler.SchemeName">
+            <summary>
+            scheme name for authentication handler.
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Security.ApiKeyAuthenticationHandler.#ctor(Microsoft.Extensions.Options.IOptionsMonitor{Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions},Microsoft.Extensions.Logging.ILoggerFactory,System.Text.Encodings.Web.UrlEncoder,Microsoft.AspNetCore.Authentication.ISystemClock)">
+            <summary>
+            Constructor
+            calls base constructor.
+            </summary>
+            <param name="options">auth options.</param>
+            <param name="logger">The logger you want.</param>
+            <param name="encoder">A URL Encoder.</param>
+            <param name="clock">A System clock.</param>
+        </member>
+        <member name="M:XCom.Api.Security.ApiKeyAuthenticationHandler.HandleAuthenticateAsync">
+            <summary>
+            verify that require api key header exist and handle authorization.
+            </summary>
+            <returns>The Auth Result.</returns>
+        </member>
+        <member name="T:XCom.Api.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="M:XCom.Api.Startup.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="env"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:XCom.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:XCom.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="loggerFactory"></param>
+        </member>
+    </members>
+</doc>
